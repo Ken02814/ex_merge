@@ -11,9 +11,9 @@ def get_todos():
 
 @app.route('/todos', methods=['POST'])
 def add_item():
-    items = request.json
-    items.append(todo)
-    return jsonify(todo), 201
+    item = request.json  # Changed from 'items' to 'item' for clarity
+    todos.append(item)   # Append the new item to the 'todos' list
+    return jsonify(item), 201
 
 @app.route('/todos/<int:todo_id>', methods=['PUT'])
 def update_todo(todo_id):
